@@ -35,6 +35,7 @@ func (cfg *Config) RegisterFlagsAndApplyDefaults(prefix string, f *flag.FlagSet)
 	f.StringVar(&cfg.Trace.S3.Endpoint, util.PrefixConfig(prefix, "trace.s3.endpoint"), "", "s3 endpoint to push blocks to.")
 	f.StringVar(&cfg.Trace.S3.AccessKey, util.PrefixConfig(prefix, "trace.s3.access_key"), "", "s3 access key.")
 	f.StringVar(&cfg.Trace.S3.SecretKey, util.PrefixConfig(prefix, "trace.s3.secret_key"), "", "s3 secret key.")
+	f.BoolVar(&cfg.Trace.S3.SignatureV2, util.PrefixConfig(prefix, "trace.s3.signature_v2"), false, "use s3 V2 signatures instead of V4.")
 
 	cfg.Trace.GCS = &gcs.Config{}
 	f.StringVar(&cfg.Trace.GCS.BucketName, util.PrefixConfig(prefix, "trace.gcs.bucket"), "", "gcs bucket to store traces in.")
